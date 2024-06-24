@@ -21,6 +21,10 @@ class Jeu extends Model
 
     public function objectifs()
     {
-        return $this->belongsToMany(objectif::class);
+        return $this->morphedToMany(objectif::class);
+    }
+    public function phases()
+    {
+        return $this->morphedToMany(phase::class);
     }
 }

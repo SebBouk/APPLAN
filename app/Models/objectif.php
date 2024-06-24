@@ -11,12 +11,11 @@ class objectif extends Model
 
     public function jeux()
     {
-        return $this->belongsToMany(jeu::class);
+        return $this->morphedToMany(jeu::class);
     }
 
     public function phases()
     {
-        return $this->belongsToMany(phase::class);    
+        return $this->morphedToMany(phase::class);    
     }
-    
 }

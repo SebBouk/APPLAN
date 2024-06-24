@@ -17,6 +17,11 @@ class phase extends Model
     
     public function objectifs()
     {
-        return $this->belongsToMany(objectif::class);
+        return $this->morphedToMany(objectif::class);
+    }
+    
+    public function jeux()
+    {
+        return $this->morphedToMany(jeu::class);
     }
 }

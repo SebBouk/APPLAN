@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vignettes', function (Blueprint $table) {
-            $table->text('url')->unique()->primary();
+            $table->text('url');
             $table->unsignedBigInteger('jeu_id');
             $table->foreign('jeu_id')->references('nomJeu')->on('jeux');
         });
