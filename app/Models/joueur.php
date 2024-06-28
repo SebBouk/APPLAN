@@ -9,6 +9,16 @@ class joueur extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'prenom',
+        'nom',
+        'urlTwitch',
+        'urlYoutube',
+        'description',
+        'login_id'
+    ];
+    public $timestamps = false; // Désactive les timestamps automatiques
+
     public function phases()
     {
         return $this->belongsTo(phase::class);
@@ -16,6 +26,6 @@ class joueur extends Model
 
     public function users()
     {
-        return $this->hasOne(user::class);
+        return $this->belongsTo(user::class, 'login_id', 'idUser');
     }
 }

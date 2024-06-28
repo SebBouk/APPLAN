@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public $timestamps = false; // Désactive les timestamps automatiques
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,6 +47,6 @@ class User extends Authenticatable
 
     public function joueurs()
     {
-        return $this->belongsTo(joueur::class);
+        return $this->hasMany(joueur::class, 'login_id','idUser');
     }
 }
